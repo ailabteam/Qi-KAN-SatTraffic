@@ -1,0 +1,6 @@
+Model: Qi-KAN
+Params: 14544
+Inference Time: 185.6922 ms
+Model: LSTM
+Params: 51009
+Inference Time: ~1.2 ms (Est.)
