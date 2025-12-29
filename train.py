@@ -28,10 +28,10 @@ def train_baseline(scenario='urban', seed=42):
     sat_kan = SatelliteKAN(input_dim=180, hidden_dim=5, output_dim=1, device=device)
     model = sat_kan.get_model()
 
-    # 3. Training with pykan's built-in optimizer
-    # L-BFGS thường hiệu quả hơn Adam cho KAN trong các bài báo gốc
+    # 3. Training with pykan's fit method
     start_time = time.time()
-    results = model.train(dataset, opt="LBFGS", steps=20, lamb=0.01)
+    # ĐỔI TỪ train SANG fit
+    results = model.fit(dataset, opt="LBFGS", steps=20, lamb=0.01)
     end_time = time.time()
     
     print(f"Training Time: {end_time - start_time:.2f} seconds")
@@ -54,5 +54,4 @@ def train_baseline(scenario='urban', seed=42):
     return results
 
 if __name__ == "__main__":
-    # Huấn luyện thử nghiệm cho kịch bản Urban Seed 42
     train_baseline(scenario='urban', seed=42)
